@@ -1,20 +1,8 @@
-import { useQuery, gql } from "@apollo/client";
+import { useCharacters } from "../hooks/useCharacters";
 import "./CharactersList.css";
 
-const GET_CHARACTERS = gql`
-  query {
-    characters {
-      results {
-        id
-        name
-        image
-      }
-    }
-  }
-`;
-
 function CharacterList() {
-  const { loading, data, error } = useQuery(GET_CHARACTERS);
+  const { loading, error, data } = useCharacters();
 
   if (loading) return <div>loading...</div>;
   if (error) return <div>Something went wrong</div>;
