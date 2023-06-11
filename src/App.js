@@ -1,10 +1,13 @@
 import "./App.css";
 import CharacterList from "./pages/CharactersList";
+import { Routes, Route } from "react-router";
 
 function App() {
   return (
     <div className="App">
-      <CharacterList />
+      <Routes>
+        <Route path="/" element={<CharacterList />} exact />
+      </Routes>
     </div>
   );
 }
